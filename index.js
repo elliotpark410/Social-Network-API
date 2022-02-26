@@ -22,6 +22,6 @@ app.use(routes);
 // once the database connect, listen to PORT
 db.once('open', () => {
   app.listen(PORT, () => {
-    console.log(`Running on localhost:${PORT}!`);
+    console.log(`Running on http://localhost:${PORT}!`);
   });
 });
