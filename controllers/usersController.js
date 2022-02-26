@@ -65,7 +65,7 @@ module.exports = {
           //  else if, then delete thoughts associated with this user
           : Thought.deleteMany({ _id: { $in: userData.thoughts } })
       )
-      .then(() => res.json({ message: 'User and thought(s) deleted' }))
+      .then(() => res.json({ message: 'User succesfully deleted' }))
       .catch((err) => res.status(500).json(err));
   },
 
@@ -93,6 +93,8 @@ module.exports = {
 
   // Remove a Friend
   removeFriend(req, res) {
+
+    console.log('You are removing a friend');
     User.findOneAndUpdate(
       { _id: req.params.userId },
       // $pull operator is used to removing all instances of a value from an existing array
