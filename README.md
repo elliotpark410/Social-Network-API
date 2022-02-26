@@ -1,7 +1,7 @@
 # Social-Network-API
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-A REST API for a social network web application where users can share their thoughts, react to friends’ thoughts, and create a friend list. The app uses Express.js, Mongoose for Object Data Modeling, and MongoDB as the NoSQL backend. 
+A REST API for a social network web application where users can share their thoughts, react to friends’ thoughts, and create a friend list. The app uses Express.js for defining routes, Mongoose for Object Data Modeling, and MongoDB as the NoSQL backend. 
 
 
 <br>
