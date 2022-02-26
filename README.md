@@ -44,7 +44,7 @@ A REST API for a social network web application where users can share their thou
   * [Technologies Used](#technologies-used)
   * [Contribution Guidelines](#contribution-guidelines)
   * [Cloning Guidelines](#cloning-guidelines)
-  * [Screenshots](#screenshots)
+  * [Screenshot](#screenshot)
   * [Code Snippets](#code-snippets)
   * [Learning Points](#learning-points)
   * [Authors](#authors)
@@ -177,9 +177,9 @@ Github repository:
 <br>
 
 
-## Screenshots 
+## Screenshot
 
-All Users with Thoughts and Reactions
+Insomnia: Get Route request to retrieve All Users with Thoughts and Reactions
 <img src="Images\Insomnia - My Collection – Get All Users.png" title="All Users with Thoughts and Reactions screenshot" width = 800px>
 
 <br>
