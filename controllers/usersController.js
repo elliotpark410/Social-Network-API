@@ -44,6 +44,7 @@ module.exports = {
       { _id: req.params.userId },
       //  $set operator is used to replace the value of a field to the specified value
       { $set: req.body },
+      {new: true},
     )
       .then((userData) =>
       !userData
@@ -56,7 +57,10 @@ module.exports = {
   // Delete User By Id
   deleteUserById(req, res) {
     // findOneAndRemove() function is used to find the element according to the condition and then remove the first matched element
-    User.findOneAndRemove({ _id: req.params.userId })
+    User.findOneAndRemove(
+      { _id: req.params.userId },
+      {new: true},
+      )
       .then((userData) =>
         // if no userData with matching id
         !userData
@@ -77,8 +81,10 @@ module.exports = {
 
     User.findOneAndUpdate(
       { _id: req.params.userId },
+      
       //  $addToSet operator adds or appends a value to an array, only if the value does not exist in the array
       { $addToSet: { friends: req.body } },
+      {new: true},
     )
       .populate({path: 'friends', select: ('-__v')})
       .select('-__v')
@@ -101,7 +107,9 @@ module.exports = {
       // $pull operator is used to removing all instances of a value from an existing array
       // pulling the subdocument friends and choosing by friendId
       // If you set new: true, findOneAndUpdate() will instead give you the object after update was applied.
-      { $pull: { friends: req.params.friendId } }, { new: true })
+      { $pull: { friends: req.params.friendId } },
+      { new: true },
+      )
       .populate({path: 'friends', select: '-__v'})
       .select('-__v')
       .then((userData) =>
