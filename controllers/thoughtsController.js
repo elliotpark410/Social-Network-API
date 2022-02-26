@@ -109,7 +109,7 @@ module.exports = {
     Thought.findOneAndUpdate(
       { _id: req.params.thoughtId },
       // $pull operator is used to removing all instances of a value from an existing array
-      { $pull: { reactions: { reactionId: req.params.reactionId } } },
+      { $pull: { reactions: req.params.reactionId } },
     )
       .populate({path: 'reactions', select: '-__v'})
       .select('-__v')

@@ -95,11 +95,13 @@ module.exports = {
   removeFriend(req, res) {
 
     console.log('You are removing a friend');
+
     User.findOneAndUpdate(
       { _id: req.params.userId },
       // $pull operator is used to removing all instances of a value from an existing array
-      { $pull: { friends: { friendId: req.params.friendId } } },
-    )
+      // pulling the subdocument friends and choosing by friendId
+      // If you set new: true, findOneAndUpdate() will instead give you the object after update was applied.
+      { $pull: { friends: req.params.friendId } }, { new: true })
       .populate({path: 'friends', select: '-__v'})
       .select('-__v')
       .then((userData) =>
