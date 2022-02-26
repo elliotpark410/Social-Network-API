@@ -109,6 +109,8 @@ module.exports = {
     Thought.findOneAndUpdate(
       { _id: req.params.thoughtId },
       // $pull operator is used to removing all instances of a value from an existing array
+      // pulling the subdocument friends and choosing by friendId
+      // If you set new: true, findOneAndUpdate() will instead give you the object after update was applied.
       { $pull: { reactions: req.params.reactionId } },
     )
       .populate({path: 'reactions', select: '-__v'})
