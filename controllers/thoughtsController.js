@@ -21,12 +21,12 @@ module.exports = {
           {$push: {thoughts: _id}}, 
           {new: true});
     })
-    .then(dbThoughtsData => {
-        if(!dbThoughtsData) {
+    .then(thoughtData => {
+        if(!thoughtData) {
             res.status(404).json({message: 'No thought with that ID'});
             return;
         }
-        res.json(dbThoughtsData)
+        res.json(thoughtData)
     })
     .catch(err => res.json(err)); 
   },
