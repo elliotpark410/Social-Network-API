@@ -190,9 +190,9 @@ Insomnia: Get Route request to retrieve All Users with Thoughts and Reactions
 
 This code snippet shows how you can use Express routes and Mongoose ORM to create controllers for a Reactions (i.e. comments) delete route
 
-* findOneAndUpdate() function in Mongoose finds the first document that matches a give filter, applies an update, and returns the document 
+* findOneAndUpdate() function in Mongoose finds the first document that matches a given filter, applies an update, and returns the document 
 
-* The filter we give findOneAndUpdate is "{_id: req.params.thoughtId}". For this app, we include the req.params.thoughtId in the URL
+* The filter we give findOneAndUpdate is "{_id: req.params.thoughtId}". For this app, the user includes the req.params.thoughtId in the URL
 
 * $pull operator is used to remove all instances of a value from an existing array. In this case, we are going into a nested object to retrieve "req.params.reactionId"
 
