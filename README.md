@@ -9,7 +9,11 @@ A REST API for a social network web application where users can share their thou
 
 ## GIF of Application
 
-<img src="Images\Tech Blog.gif" title="Tech Blog gif" width = 368px>
+<img src="Images\Social Network API Part 1.gif" title="Social Network API gif Part 1" width = 368px>
+
+<br>
+
+<img src="Images\Social Network API Part 2.gif" title="Social Network API gif Part 2" width = 368px>
 
 <br>
 
@@ -21,7 +25,11 @@ A REST API for a social network web application where users can share their thou
 
 <br> -->
 
-[GIF of Application](https://drive.google.com/file/d/1XiuC8I3lHTCWGRM8otS_M1hiaoDsPoU5/view)
+[GIF of Application Part 1](https://drive.google.com/file/d/1ujDLhCHu7S_Z2fy6JaPBoQSyGIfAvxco/view)
+
+<br>
+
+[GIF of Application Part 2](https://drive.google.com/file/d/1OJXlKbEWhxF56xBDuoU5Mp2qZEXWdF5h/view)
 
 <br>
 
@@ -171,29 +179,8 @@ Github repository:
 
 ## Screenshots 
 
-<br>
-Homepage
-<img src="Images\Homepage screenshot.png" title="Homepage screenshot" width = 700px>
-
-<br>
-<br>
-Sign Up
-<img src="Images\Sign Up screenshot.png" title="Sign Up screenshot" width = 700px>
-
-<br>
-<br>
-Dashboard
-<img src="Images\Dashboard screenshot.png" title="Dashbooard screenshot" width = 700px>
-
-<br>
-<br>
-Submit a Comment
-<img src="Images\Submit a Comment screenshot.png" title="Submit a Comment screenshot" width = 700px>
-
-<br>
-<br>
-Edit Post
-<img src="Images\Edit Post screenshot.png" title="Edit Post screenshot" width = 700px>
+All Users with Thoughts and Reactions
+<img src="Images\Insomnia - My Collection – Get All Users.png" title="All Users with Thoughts and Reactions screenshot" width = 800px>
 
 <br>
 <br>
