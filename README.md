@@ -78,9 +78,9 @@ To run this application, you will need Node and other dependencies:
 `npm install 
 `
 
-4. Additionally, you can download mysql database to store and access data:
+4. Additionally, you can download MongoDB database to store and access data:
 
-[Download MySQL](https://www.mysql.com/downloads/)
+[Download MongoDB](https://www.mongodb.com/try/download/community)
 
 <br>
 
@@ -136,7 +136,7 @@ Example DELETE: The API request below will delete note with id = "1"
 * [Node.js](https://nodejs.org/en/) 
 * [Express](https://www.npmjs.com/package/express) 
 * [Mongoose ODM](https://www.npmjs.com/package/mongoose) 
-* [MongoDB](hhttps://www.mongodb.com/try/download/community)
+* [MongoDB](https://www.mongodb.com/try/download/community)
 * [Insomnia](https://insomnia.rest/download)
 
 
@@ -164,7 +164,7 @@ To install this code, please use [Github's guidlines to clone the repository](ht
 <br>
 
 Github repository:
->https://github.com/elliotpark410/Tech-Blog
+>https://github.com/elliotpark410/Social-Network-API
 
 <br>
 
@@ -201,46 +201,31 @@ Edit Post
 
 ## Code Snippets
 
-This code snippet shows how you can use Express routes, Sequelize ORM, and JavaScript to create a get route for the hompaage so users can have access to all blog post data
+This code snippet shows how you can use Express routes and Mongoose ORM to create the controllers for a delete route for Reactions (i.e. comments)
 
-* router.get('filepath') to request data from a specified source e.g. blog data post
+* findOneAndUpdate() function in Mongoose finds the first document that matches a give filter, applies an update, and returns the document 
 
-* try/catch statement for error handling 
+* The filter we give findOneAndUpdate is "{_id: req.params.thoughtId}". For this app, we include the req.params.thoughtId in the URL
 
-* async/await to for asynchronous promise-based behavior
+* $pull operator is used to remove all instances of a value from an existing array. In this case, we are going into a nested object to retrieve "req.params.reactionId"
 
-* Sequelize .findAll() method to read the whole table from the database
+* {new: true} will have the findOneAndUpdate() function return the object after the update was applied. The default is to return the object before the update was applied
 
-* .map function to create a new array with a callback function for every array element. In this case, we wanted to use it to return a plain object
-
-* res.render ('template.handlebars') to render a view with data 
+* You'll notice a "?" and the following line has a ":" which is a ternary oeprator and has the form of "condition ? value-if-true : value-if-false"
 
 ```
-router.get('/', async (req, res) => {
-  try {
-    const postData = await Post.findAll({
-      include: [
-        {
-          model: User,
-          attributes: ['username'],
-        },
-        {
-          model: Comment,
-          attributes: ['comment_content', 'user_id', 'post_id',],
-        },
-      ],
-    });
-
-    const posts = postData.map((post) => post.get({ plain: true }));
-
-    res.render('homepage', { 
-      posts, 
-    });
-  } catch (err) {
-   (Internal Server Error)
-    res.status(500).json(err);
-  }
-});
+  deleteReaction(req, res) {
+    Thought.findOneAndUpdate(
+      { _id: req.params.thoughtId },
+      { $pull: { reactions: { reactionId: req.params.reactionId } } },
+      {new: true})
+      .then((thoughtData) =>
+        !thoughtData
+          ? res.status(404).json({ message: 'No thought found with that ID.' })
+          : res.json(thoughtData)
+      )
+      .catch((err) => res.status(500).json(err));
+  },
 ```
 
  <br>
@@ -248,17 +233,15 @@ router.get('/', async (req, res) => {
 
 ## Learning Points
 
-* How to use Sequelize ORM
+* How to use Mongoose ODM
 
-* How to create handlebar templates
+* How to connect to MongoDB
 
-* How to deploy on Heroku with MySQL
+* How to create NoSQL schemas and models 
 
-* How to create API routes and models 
+* How to create REST API routes with Express
 
-* How to create sessions to capture cookies and user information
-
-* How to use MySQL Workbench and Insomnia for testing API routes
+* How to use Insomnia for testing API routes
 
 
 <br>
