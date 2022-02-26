@@ -13,27 +13,22 @@ module.exports = {
   },
 
   // Create a New Thought
-  createThought(req, res) {
-    Thought.create(req.body)
-      .then((thoughtData) => {
+  createThought({params, body}, res) {
+    Thought.create(body)
+    .then(({_id}) => {
         return User.findOneAndUpdate(
-          { _id: req.body.userId },
-          //  $addToSet operator adds or appends a value to an array, only if the value does not exist in the array
-          { $addToSet: { thoughts: thoughtData._id } },
-          { new: true }
-        );
-      })
-      .then((userData) =>
-        !userData
-          ? res.status(404).json({
-              message: 'Thought created, but found no user with that ID',
-            })
-          : res.json('Created a thought 🎉')
-      )
-      .catch((err) => {
-        console.log(err);
-        res.status(500).json(err);
-      });
+          { _id: params.userId}, 
+          {$push: {thoughts: _id}}, 
+          {new: true});
+    })
+    .then(dbThoughtsData => {
+        if(!dbThoughtsData) {
+            res.status(404).json({message: 'No thought with that ID'});
+            return;
+        }
+        res.json(dbThoughtsData)
+    })
+    .catch(err => res.json(err)); 
   },
 
   // Get a Single Thought By Id
