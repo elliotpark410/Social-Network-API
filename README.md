@@ -188,7 +188,7 @@ Insomnia: Get Route request to retrieve All Users with Thoughts and Reactions
 
 ## Code Snippets
 
-This code snippet shows how you can use Express routes and Mongoose ORM to create the controllers for a delete route for Reactions (i.e. comments)
+This code snippet shows how you can use Express routes and Mongoose ORM to create controllers for a Reactions (i.e. comments) delete route
 
 * findOneAndUpdate() function in Mongoose finds the first document that matches a give filter, applies an update, and returns the document 
 
