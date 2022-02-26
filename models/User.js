@@ -18,17 +18,17 @@ const userSchema = new Schema(
       match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address']
     },
     // populating subdocuments Thoughts
-    Thoughts: [
+    Thought: [
       {
         type: Schema.Types.ObjectId,
-        ref: 'Thoughts',
+        ref: 'Thought',
       },
     ],
     // populating subdocument Friends
     friends: [
       {
       type: Schema.Types.ObjectId,
-      ref: 'Users'
+      ref: 'User'
       }
     ],
   },
@@ -51,6 +51,6 @@ userSchema
   });
 
 // Initialize our User model
-const Users = model('Users', userSchema);
+const User = model('User', userSchema);
 
-module.exports = Users;
+module.exports = User;
