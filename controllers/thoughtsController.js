@@ -52,6 +52,7 @@ module.exports = {
       { _id: req.params.thoughtId },
       //  $set operator is used to replace the value of a field to the specified value
       { $set: req.body },
+      {new: true},
     )
       .then((thoughtData) =>
       !thoughtData
@@ -64,7 +65,10 @@ module.exports = {
   // Delete Thought By Id
   deleteThoughtById(req, res) {
     // findOneAndDelete() function is used to find a matching document, remove it, and passes the found document (if any) to the callback
-    Thought.findOneAndDelete({ _id: req.params.thoughtId })
+    Thought.findOneAndDelete(
+      { _id: req.params.thoughtId },
+      {new: true},
+      )
       .then((thoughtData) =>
         // if no thoughtData with matching id
         !thoughtData
@@ -73,7 +77,7 @@ module.exports = {
           //  else if, then delete reactions associated with this thought
           : Thought.deleteMany({ _id: { $in: thoughtData.reactions } })
       )
-      .then(() => res.json({ message: 'Thought and reaction(s) deleted' }))
+      .then(() => res.json({ message: 'Thought deleted' }))
       .catch((err) => res.status(500).json(err));
   },
 
@@ -87,6 +91,7 @@ module.exports = {
       { _id: req.params.thoughtId },
       //  $addToSet operator adds or appends a value to an array, only if the value does not exist in the array
       { $addToSet: { reactions: req.body } },
+      {new: true},
     )
       .populate({path: 'reactions', select: ('-__v')})
       .select('-__v')
@@ -106,8 +111,8 @@ module.exports = {
       // $pull operator is used to removing all instances of a value from an existing array
       // pulling the subdocument friends and choosing by friendId
       // If you set new: true, findOneAndUpdate() will instead give you the object after update was applied.
-      { $pull: { reactions: req.params.reactionId } },
-    )
+      { $pull: { reactions: { reactionId: req.params.reactionId } } },
+      {new: true})
       .populate({path: 'reactions', select: '-__v'})
       .select('-__v')
       .then((thoughtData) =>
