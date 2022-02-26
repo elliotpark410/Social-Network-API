@@ -13,8 +13,10 @@ const PORT = process.env.PORT || 3001;
 
 const app = express();
 
+// for POST and PUT requests
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
 app.use(routes);
 
 // once the database connect, listen to PORT
