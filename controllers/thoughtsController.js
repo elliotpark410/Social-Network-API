@@ -13,11 +13,11 @@ module.exports = {
   },
 
   // Create a New Thought
-  createThought({params, body}, res) {
-    Thought.create(body)
+  createThought(req, res) {
+    Thought.create(req.body)
     .then(({_id}) => {
         return User.findOneAndUpdate(
-          { _id: params.userId}, 
+          { _id: req.params.userId}, 
           {$push: {thoughts: _id}}, 
           {new: true});
     })
@@ -109,7 +109,7 @@ module.exports = {
     Thought.findOneAndUpdate(
       { _id: req.params.thoughtId },
       // $pull operator is used to removing all instances of a value from an existing array
-      // pulling the subdocument friends and choosing by friendId
+      // pulling the subdocument reaction and going into the reaction object and finding reactionId
       // If you set new: true, findOneAndUpdate() will instead give you the object after update was applied.
       { $pull: { reactions: { reactionId: req.params.reactionId } } },
       {new: true})
