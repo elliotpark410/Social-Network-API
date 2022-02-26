@@ -1,15 +1,7 @@
 # Social-Network-API
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-An API for a social network web application where users can share their thoughts, react to friends’ thoughts, and create a friend list
-
-
-OLD README.MD. MUST UPDATE!!!
-
-
-A CMS-style blog site similar to a Wordpress site, where developers can publish their blog posts and comment on other developers’ posts as well.
-
-The app follows the MVC paradigm in its architectural structure, using Handlebars.js as the templating language, Sequelize as the ORM, and the express-session npm package to store session data.
+A REST API for a social network web application where users can share their thoughts, react to friends’ thoughts, and create a friend list. The app uses Express.js, Mongoose for Object Data Modeling, and MongoDB as the NoSQL backend. 
 
 
 <br>
@@ -33,7 +25,7 @@ The app follows the MVC paradigm in its architectural structure, using Handlebar
 
 <br>
 
-[Github Repository](https://github.com/elliotpark410/Tech-Blog)
+[Github Repository](https://github.com/elliotpark410/Social-Network-API)
 
 <br>
 
@@ -59,7 +51,7 @@ The app follows the MVC paradigm in its architectural structure, using Handlebar
 To begin the application, use the following in command line:
 
 `
-node server.js
+nodemon index.js
 `
 <br>
 
@@ -143,14 +135,8 @@ Example DELETE: The API request below will delete note with id = "1"
 * [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 * [Node.js](https://nodejs.org/en/) 
 * [Express](https://www.npmjs.com/package/express) 
-* [Express Session](https://www.npmjs.com/package/express-session) 
-* [Express Handlebars](https://www.npmjs.com/package/express-handlebars) 
-* [MySQL2](https://www.npmjs.com/package/mysql2)
-* [Sequelize](https://www.npmjs.com/package/sequelize) 
-* [Connect Session Sequelize](https://www.npmjs.com/package/connect-session-sequelize) 
-* [dotEnv](https://www.npmjs.com/package/dotenv)
-* [bcrypt](https://www.npmjs.com/package/bcrypt) 
-* [MySQL](https://www.mysql.com/downloads/)
+* [Mongoose ODM](https://www.npmjs.com/package/mongoose) 
+* [MongoDB](hhttps://www.mongodb.com/try/download/community)
 * [Insomnia](https://insomnia.rest/download)
 
 

@@ -18,6 +18,7 @@ module.exports = {
     .then(({_id}) => {
         return User.findOneAndUpdate(
           { _id: req.params.userId}, 
+          // $push operator is used to appends a specified value to an array
           {$push: {thoughts: _id}}, 
           {new: true});
     })
