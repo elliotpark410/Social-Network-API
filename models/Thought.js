@@ -16,8 +16,8 @@ const thoughtSchema = new Schema(
     },
     createdAt: {
       type: Date, 
-      default: Date.now(),
-      get: (createdAtVal) => dateFormat(createdAtVal),
+      default: Date.now,
+      get: (date) => dateFormat(date),
     },
     // populating subdocuments username
     username: {
@@ -32,6 +32,7 @@ const thoughtSchema = new Schema(
     // Here we are indicating that we want virtuals to be included with our response, overriding the default behavior
     toJSON: {
       virtuals: true,
+      getters: true,
     },
     id: false,
   }

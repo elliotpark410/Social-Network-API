@@ -18,13 +18,12 @@ const reactionSchema = new Schema(
       type: String,
       required: true,
     },
-    createdAt: [
+    createdAt: 
       {
         type: Date,
         default: Date.now(),
-        get: (createdAtVal) => dateFormat(createdAtVal),
+        get: (date) => dateFormat(date),
       },
-    ],
   },
   {
     toJSON: {
