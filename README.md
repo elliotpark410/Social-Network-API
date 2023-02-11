@@ -28,7 +28,7 @@ A REST API for a social network web application where users can share their thou
   * [Screenshot](#screenshot)
   * [Code Snippets](#code-snippets)
   * [Learning Points](#learning-points)
-  * [Authors](#authors)
+  * [Author](#author)
 
 <br>
 
@@ -138,7 +138,7 @@ This code snippet shows how you can use Express routes and Mongoose ORM to creat
 <br>
 
 
-## Authors
+## Author
  **1. Elliot Park** 
 
 [Github](https://github.com/elliotpark410)
