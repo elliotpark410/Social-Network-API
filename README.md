@@ -45,36 +45,27 @@ nodemon index.js
 
 ## Prerequisites
 
-To run this application: 
-
-1. Download Node.js
-
-[Download Node](https://nodejs.org/en/download/)
+1. [Download Node.js](https://nodejs.org/en/download/)
 
 <br>
 
 2. Install node package manager (npm)
 
-`npm install -g npm
-`
+`npm install -g npm`
 
 <br>
 
-3. Install dependencies in package.json
+3. Install dependencies inquirer, console.table, and mysql2
 
-`npm install 
-`
-
-4. Download MongoDB database to store and access data:
-
-[Download MongoDB](https://www.mongodb.com/try/download/community)
+`npm install`
 
 <br>
 
+4. [Download MongoDB](https://www.mongodb.com/try/download/community)
 
-5. Download Insomnia for testing API routes:
+<br>
 
-[Download Insomnia](https://insomnia.rest/download)
+5. [Download Insomnia](https://insomnia.rest/download)
 
 <br>
 
