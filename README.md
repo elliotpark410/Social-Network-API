@@ -139,7 +139,7 @@ This code snippet shows how you can use Express routes and Mongoose ORM to creat
 
 
 ## Author
- **1. Elliot Park** 
+ **Elliot Park** 
 
 [Github](https://github.com/elliotpark410)
 
